@@ -24,18 +24,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configuration - Updated for Render deployment
-# For local testing, use relative path to parent folder
-# For Render, model files should be in the same directory
-if os.path.exists(os.path.join(os.path.dirname(__file__), "best_currency_model (1).h5")):
-    # Render deployment (model in same directory)
-    MODEL_PATH = os.path.join(os.path.dirname(__file__), "best_currency_model (1).h5")
-    LABELS_PATH = os.path.join(os.path.dirname(__file__), "labels.txt")
-else:
-    # Local development (model in parent folder)
-    MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "babu taka strealmit app", "best_currency_model (1).h5")
-    LABELS_PATH = os.path.join(os.path.dirname(__file__), "..", "babu taka strealmit app", "labels.txt")
-
+# Configuration - Model files are in the same server directory
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "best_currency_model (1).h5")
+LABELS_PATH = os.path.join(os.path.dirname(__file__), "labels.txt")
 IMG_SIZE = (224, 224)
 
 # Global variables
